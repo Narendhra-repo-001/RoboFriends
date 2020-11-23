@@ -2,6 +2,7 @@ import React from 'react';
 import RoboCards from './RoboCards';
 import RoboSearch from './RoboSearch';
 import CustBg from './CustBg';
+import ErrorBoundary from './ErrorBoundary';
 
 class App extends React.Component
 {  
@@ -50,7 +51,9 @@ class App extends React.Component
                     <h1>ROBOFRIENDS</h1>
                     <RoboSearch searchRobots={this.searchRobots}></RoboSearch>  
                     <CustBg>
-                        <RoboCards robots={this.state.filteredRobots}></RoboCards>
+                        <ErrorBoundary>
+                            <RoboCards robots={this.state.filteredRobots}></RoboCards>
+                        </ErrorBoundary>
                     </CustBg>      
                 </div>
             );
